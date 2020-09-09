@@ -1,5 +1,7 @@
 # CSV Fingerprint &mdash; But With Colormaps!
 
+Try it here: https://gauchm.github.io/csv-fingerprint
+
 CSV Fingerprint is a small app that generates qualitative visualizations of any CSV file to help debug any formatting issues. 
 Each cell is colored according to its type. Strings are yellow, empty values are red. 
 Decimals are color-coded with the [plasma colormap](https://matplotlib.org/3.1.0/tutorials/colors/colormaps.html); integers with the [viridis colormap](https://matplotlib.org/3.1.0/tutorials/colors/colormaps.html).
