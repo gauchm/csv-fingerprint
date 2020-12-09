@@ -267,11 +267,23 @@
                                 rect.color = rect.type
                             } else if (d.indexOf('.') !== -1) {
                                 rect.type = colors.decimal
-                                var col = interpolateLinearly(((d - colorscales[j].min) / (colorscales[j].max - colorscales[j].min)), cmap_plasma)
+                                var standardized = (d - colorscales[j].min) / (colorscales[j].max - colorscales[j].min)
+                                var col = undefined
+                                if (isFinite(standardized) && !isNaN(standardized)) {
+                                    col = interpolateLinearly(standardized, cmap_plasma)
+                                } else {
+                                    col = interpolateLinearly(0, cmap_plasma)
+                                }
                                 rect.color = 'rgb(' + col[0] + ',' + col[1] + ',' + col[2] + ')'
                             } else {
                                 rect.type = colors.integer
-                                var col = interpolateLinearly(((d - colorscales[j].min) / (colorscales[j].max - colorscales[j].min)), cmap_viridis)
+                                var standardized = (d - colorscales[j].min) / (colorscales[j].max - colorscales[j].min)
+                                var col = undefined
+                                if (isFinite(standardized) && !isNaN(standardized)) {
+                                    col = interpolateLinearly(standardized, cmap_viridis)
+                                } else {
+                                    col = interpolateLinearly(0, cmap_viridis)
+                                }
                                 rect.color = 'rgb(' + col[0] + ',' + col[1] + ',' + col[2] + ')'
                             }
                             rects.push(rect)
